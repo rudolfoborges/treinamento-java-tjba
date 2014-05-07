@@ -1,4 +1,4 @@
-Tribunal de Justiça do Estado da Bahia - Treinamento Java
+Treinamento Java - TJBA
 =====================
 
 Aula 1 - Configuração do ambiente e criação do model Contato
