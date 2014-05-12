@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+	
+	<f:event listener="#{contatoBean.initList()}" type="preRenderView"></f:event>
+	
+	<h:form>
+	
+		<h1>Lista de Contatos</h1>
+		
+		<a href="/treinamento/contato/form.jsf">Novo</a>
+		
+		<h:messages errorStyle="color: red;" infoStyle="color: green;" />
+		
+		<h:dataTable var="contato" value="#{contatoBean.contatos}" width="600">
+			
+			<h:column rowHeader="#">
+				<h:commandLink action="#{contatoBean.goEdit(contato.id)}" value="#{contato.id}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{contato.nome}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Email</f:facet>
+				<h:outputText value="#{contato.email}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Telefone</f:facet>
+				<h:outputText value="#{contato.numeroTelefone}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Celular</f:facet>
+				<h:outputText value="#{contato.numeroCelular}" />
+			</h:column>
+			
+			<h:column>
+				<h:commandLink action="#{contatoBean.remove(contato.id)}" value="Remover" />
+			</h:column>
+		</h:dataTable>
+	
+	</h:form>
+
+</body> 
+</html>
