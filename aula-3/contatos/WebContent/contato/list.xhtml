@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+	
+	<f:event listener="#{contatoBean.initList()}" type="preRenderView"></f:event>
+
+	<h1>Lista de Contatos</h1>
+
+	<a href="/contatos/contato/form.jsf">Novo</a>
+	
+	<h:messages errorStyle="color: red" infoStyle="color: green" />
+	
+	<h:form>
+		<h:dataTable var="contato" value="#{contatoBean.contatoList}">
+			
+			<h:column>
+				<f:facet name="header">#</f:facet>
+				<h:outputText value="#{contato.id}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{contato.nome}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header"></f:facet>
+				<h:commandLink action="#{contatoBean.remove(contato.id)}" value="Remover" />
+			</h:column>
+			
+		</h:dataTable>
+	</h:form>
+	
+</body> 
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+
+	<h1>Cadastro de Contatos</h1>
+	
+	<h:messages errorStyle="color: red" infoStyle="color: green" />
+	
+	<h:form>
+		
+		<label>Nome</label>
+		<h:inputText value="#{contatoBean.contato.nome}" required="true" label="Nome" /><br/>
+		
+		<label>Email</label>
+		<h:inputText value="#{contatoBean.contato.email}" required="true" label="Email" /><br/>
+		
+		<label>Idade</label>
+		<h:inputText value="#{contatoBean.contato.idade}" required="true" label="Idade" /><br/>
+		
+		<h:commandButton action="#{contatoBean.save()}" value="Salvar" />	
+		
+	</h:form>
+
+</body> 
+</html>
